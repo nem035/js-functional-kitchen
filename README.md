@@ -35,9 +35,9 @@ const unary = (fn) => fn.length === 1
 const tap = (value) => (fn) =>
   (typeof(fn) === 'function' && fn(value), value)
 
-const get5AndLogIt = tap(5);
+const tap5 = tap(5);
 
-get5AndLogIt(console.log); // returns and logs 5
+tap5(console.log); // returns and logs 5
 ```
 
 ### `maybe`
