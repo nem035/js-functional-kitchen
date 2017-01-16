@@ -22,9 +22,7 @@ secondTimer(() => {
 ### `unary`
 
 ```js
-const unary = (fn) => fn.length === 1
-  ? fn
-  : (firstArg) => fn(firstArg);
+const unary = (fn) => fn.length === 1 ? fn : (firstArg) => fn(firstArg);
 
 ['1', '2', '3'].map(unary(parseInt)) // [1, 2, 3]
 ```
@@ -62,7 +60,7 @@ const once = (fn) => (...args) => {
   let done = false;
   return done
     ? void 0
-    : fn(..args);
+    : (done = true, fn(..args));
 }
 
 const authenticate = once(login);
